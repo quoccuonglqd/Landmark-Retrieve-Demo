@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="primary.css">
+<link rel="stylesheet" href="stack.css">
+<link rel="stylesheet" href="default.css">
+<link rel="stylesheet" href="default+en.css">
+<link rel="stylesheet" href="style-min-v1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.bg-img {
+  width: 100%;
+  padding: 10% 0;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid;
+}
+
+.enableBlur>* {
+  filter: blur(80px);
+}
+
+.disableBlur {
+  filter: blur(0);
+}
+
+
+</style>
+</head>
+<body>
+
+
+<div class="header" id="myHeader">
+  <img style = "display:inline-block;" src = "logo.png" width=40 height = 40>
+  <h2 style = "display:inline-block;font-size:40px;font-family:'Brush Script MT', cursive;">DILUONDI</h2>
+  <form name="searchform" id="search-form">
+   <div>
+       <b>Search</b>
+       <input type="text" name="txtInput" title="Enter the terms you wish to search for." />
+       <input type="submit" value="GO!" class="submit" style="cursor: pointer;" />
+       <label for="file-upload" class="ws-nowrap s-btn s-btn__primary disableBlur custom-file-upload" style="position:absolute;top:40px;left:1100px;">
+        <i class="fa fa-cloud-upload"></i> Custom Upload
+       </label>
+       <input id="file-upload" type="file" style="position:absolute;top:25px;left:1500px;"/>
+       <script type="text/javascript" language="javascript">
+        (function() {
+          var id = document.getElementById('search-form');
+          if (id && id.txtInput) {
+            var name = id.txtInput;
+            var unclicked = function() {
+              if (name.value == '') {
+                name.style.background = 'url(https://www.google.com/cse/static/images/1x/en/branding.png) left center no-repeat rgb(255, 255, 255)';
+              }
+            };
+          var clicked = function() {
+            name.style.background = '#ffffff';
+          };
+          name.onfocus = clicked;
+          name.onblur = unclicked;
+          unclicked();
+          }
+        })();
+      </script>
+   </div>
+  </form>
+</div>
+
+<div class="bg-img enableBlur" style="background-image: url('https://msmobile.com.vn/upload_images/images/hinh-nen-phong-canh-dep-cho-may-tinh-11.jpg');">
+
+<div class="content disableBlur">
+  <h3>On Scroll Sticky Header</h3>
+  <p>The header will stick to the top when you reach its scroll position.</p>
+  <p>Scroll back up to remove the sticky effect.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+</div>
+
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+<script> 
+  var images = new Array(
+  'https://msmobile.com.vn/upload_images/images/hinh-nen-phong-canh-dep-cho-may-tinh-11.jpg',
+  'https://datvietmedia.com/wp-content/uploads/2018/09/wallpaper-3283213.jpg',
+);
+
+  var slider = setInterval(function() {
+    document.getElementsByClassName('bg-img')[0].setAttribute('style', 'background-image: url("'+images[0]+'")');
+    images.splice(images.length, 0, images[0]);
+    images.splice(0, 1);
+  }, 3000);
+</script>
+
+</body>
+</html>
